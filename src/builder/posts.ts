@@ -24,7 +24,7 @@ export type Member = {
   websiteUrl?: string;
 };
 
-const sources = ['https://qiita.com/okamu_/feed', 'https://note.com/okamu_/rss', 'https://note.com/noplan_inc/rss']
+export const sources = ['https://qiita.com/okamu_/feed', 'https://note.com/okamu_/rss', 'https://note.com/noplan_inc/rss']
 
 function isValidUrl(str: string): boolean {
   try {
@@ -69,7 +69,7 @@ async function getFeedItemsFromSources(sources: undefined | string[]) {
   return feedItems;
 }
 
-async function getMemberFeedItems(member: Member): Promise<PostItem[]> {
+export async function getMemberFeedItems(member: Member): Promise<PostItem[]> {
   const { id, sources, name, includeUrlRegex, excludeUrlRegex } = member;
   const feedItems = await getFeedItemsFromSources(sources);
   if (!feedItems) return [];
