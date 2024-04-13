@@ -1,7 +1,6 @@
 import fs from "fs-extra";
 import Parser from "rss-parser";
-import { members } from "../../members";
-import { PostItem, Member } from "../types";
+import { PostItem } from "../types";
 
 type FeedItem = {
   title: string;
@@ -10,6 +9,22 @@ type FeedItem = {
   isoDate?: string;
   dateMiliSeconds: number;
 };
+
+export type Member = {
+  id: string;
+  name: string;
+  avatarSrc: string;
+  role?: string;
+  bio?: string;
+  sources?: string[];
+  includeUrlRegex?: string;
+  excludeUrlRegex?: string;
+  githubUsername?: string;
+  twitterUsername?: string;
+  websiteUrl?: string;
+};
+
+const sources = ['https://qiita.com/okamu_/feed', 'https://note.com/okamu_/rss', 'https://note.com/noplan_inc/rss']
 
 function isValidUrl(str: string): boolean {
   try {
@@ -42,6 +57,7 @@ async function fetchFeedItems(url: string) {
       ({ title, link }) => title && link && isValidUrl(link)
     ) as FeedItem[];
 }
+
 
 async function getFeedItemsFromSources(sources: undefined | string[]) {
   if (!sources?.length) return [];
@@ -81,8 +97,16 @@ async function getMemberFeedItems(member: Member): Promise<PostItem[]> {
   return postItems;
 }
 
+const members = 
+  {
+    id: "1",
+    name: "おかむー",
+    avatarSrc: "",
+    sources: sources,
+  } as Member
+
 (async function () {
-  for (const member of members) {
+  for (const member of [members] ) {
     const items = await getMemberFeedItems(member);
     if (items) allPostItems = [...allPostItems, ...items];
   }

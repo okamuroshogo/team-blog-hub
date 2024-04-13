@@ -1,25 +1,25 @@
 export const config = {
   siteMeta: {
-    title: "Team Blog Hub",
-    teamName: "catnose Inc.",
-    description: "RSS based blog starter kit for teams.",
+    title: "おかむーのブログ",
+    teamName: "okamu.ro",
+    description: "おかむーが発信しているQiitaやnoteのブログまとめです。",
   },
   siteRoot:
     process.env.NODE_ENV === "production"
-      ? "https://team-blog-hub.vercel.app"
+      ? "https://blog.okamu.ro"
       : "http://localhost:3000",
   headerLinks: [
     {
-      title: "About",
-      href: "/about",
+      title: "Qiita",
+      href: "https://qiita.com/okamu_",
     },
     {
-      title: "Company",
-      href: "https://zenn.dev/catnose99/articles/cb72a73368a547756862",
+      title: "Note",
+      href: "https://note.com/okamu_",
     },
     {
-      title: "GitHub",
-      href: "https://github.com/catnose99/team-blog-hub",
+      title: "no plan株式会社",
+      href: "https://noplan-inc.com",
     },
   ],
 };
