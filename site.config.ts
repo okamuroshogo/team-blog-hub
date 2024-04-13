@@ -10,10 +10,6 @@ export const config = {
       : "http://localhost:3000",
   headerLinks: [
     {
-      title: "Home",
-      href: "https://www.okamu.ro",
-    },
-    {
       title: "Qiita",
       href: "https://qiita.com/okamu_",
     },
@@ -22,8 +18,8 @@ export const config = {
       href: "https://note.com/okamu_",
     },
     {
-      title: "GitHub",
-      href: "https://github.com/okamuroshogo",
+      title: "no plan株式会社",
+      href: "https://noplan-inc.com",
     },
   ],
 };

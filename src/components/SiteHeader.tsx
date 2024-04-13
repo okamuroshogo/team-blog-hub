@@ -7,7 +7,7 @@ export const SiteHeader: React.FC = () => (
   <header className="site-header">
     <ContentWrapper>
       <div className="site-header__inner">
-        <Link href="/" passHref>
+        <Link href="https://www.okamu.ro" passHref>
           <a className="site-header__logo-link">
             <img
               src="/logo-txt.png"
